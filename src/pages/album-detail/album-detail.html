@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{artist}} - {{album.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h1>{{album.name}}</h1>
+  <div class="img-container">
+    <img [src]="album.images.length > 0 ? album.images[0].url : ''" alt="">
+  </div>
+  <button (click)="showIframe = !showIframe" class="toggle">Ver detalle en Spotify&nbsp;<ion-icon name="md-arrow-dropdown"></ion-icon></button>
+  <iframe *ngIf="showIframe" [src]="sanitizeUrl(album.external_urls.spotify)" frameborder="0"></iframe>
+</ion-content>

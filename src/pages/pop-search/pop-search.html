@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Busca tu artista</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <input class="search-bar" type="text" [(ngModel)]="artistName" (ngModelChange)="searchArtist()" placeholder="Nombre">
+  <ion-list>
+    <ion-item *ngFor="let artist of artistList">
+      <ion-thumbnail item-start>
+        <img [src]="artist.images.length > 0 ? artist.images[0].url : ''" alt="">
+      </ion-thumbnail>
+      {{artist.name}}
+      <button ion-button outline item-end (click)="addArtist(artist)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
